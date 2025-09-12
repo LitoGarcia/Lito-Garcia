@@ -1,0 +1,85 @@
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+export default function Profile() {
+  return (
+    <View style={styles.container}>
+      
+      <View style={styles.header}>
+        <Ionicons name="menu" size={28} color="#fff" />
+        <Text style={styles.headerTitle}>Profile</Text>
+        <Ionicons name="share-social-outline" size={24} color="#fff" />
+      </View>
+
+      
+      <View style={styles.profileSection}>
+        <Image
+          source={require("./assets/avatar.jpg")}
+          style={styles.avatar}
+        />
+        <Text style={styles.name}>Lito Garcia</Text>
+
+        <View style={styles.statsRow}>
+          <View style={styles.statBox}>
+            <Text style={styles.statNumber}>10,999</Text>
+            <Text style={styles.statLabel}>Followers</Text>
+          </View>
+          <View style={styles.statBox}>
+            <Text style={styles.statNumber}>888</Text>
+            <Text style={styles.statLabel}>Following</Text>
+          </View>
+          <View style={styles.statBox}>
+            <Text style={styles.statNumber}>111</Text>
+            <Text style={styles.statLabel}>Posts</Text>
+          </View>
+        </View>
+
+        
+        <TouchableOpacity style={styles.editButton}>
+          <Text style={styles.editButtonText}>Edit Profile</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#f9f9f9" },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#4285F4",
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+  },
+  headerTitle: { color: "#fff", fontSize: 20, fontWeight: "bold" },
+  profileSection: { alignItems: "center", marginTop: 20 },
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: "#ddd",
+  },
+  name: { fontSize: 22, fontWeight: "bold", marginTop: 10 },
+  statsRow: { flexDirection: "row", marginTop: 15, marginBottom: 20 },
+  statBox: { alignItems: "center", marginHorizontal: 20 },
+  statNumber: { fontSize: 20, fontWeight: "bold" },
+  statLabel: { fontSize: 14, color: "#555" },
+  editButton: {
+    backgroundColor: "#4285F4",
+    paddingVertical: 12,
+    paddingHorizontal: 50,
+    borderRadius: 8,
+  },
+  editButtonText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
+});
